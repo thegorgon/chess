@@ -1,0 +1,10 @@
+source 'https://rubygems.org'
+
+ruby '2.3.0'
+
+group :development do
+  gem 'pry'
+  gem 'rspec'
+  gem 'rubocop', require: false
+end
+
