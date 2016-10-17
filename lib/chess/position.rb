@@ -56,5 +56,9 @@ module Chess
         end
       end
     end
+
+    def to_code
+      "#{Chess::COLUMNS[col]}#{row+1}"
+    end
   end
 end

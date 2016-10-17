@@ -11,9 +11,9 @@ module Chess
           rowptr -= 1
           colptr -= 1
           other = @board.fetch([rowptr, colptr]).piece
-          break if other && other.color == @position.color
+          break if other && other.color == @color
           results << Position.normalize([rowptr, colptr])
-          break if other && other.color != color
+          break if other && other.color != @color
         end
 
         # Explore SE diagonal
@@ -22,10 +22,10 @@ module Chess
         while rowptr > 0 && colptr < @board.width - 1
           rowptr -= 1
           colptr += 1
-          other = @board.fetch(rowptr, colptr).piece
-          break if other && other.color == @position.color
+          other = @board.fetch([rowptr, colptr]).piece
+          break if other && other.color == @color
           results << Position.normalize([rowptr, colptr])
-          break if other && other.color != color
+          break if other && other.color != @color
         end
 
         # Explore NE diagonal
@@ -34,10 +34,10 @@ module Chess
         while rowptr < @board.height - 1 && colptr < @board.width - 1
           rowptr += 1
           colptr += 1
-          other = @board.fetch(rowptr, colptr).piece
-          break if other && other.color == @position.color
+          other = @board.fetch([rowptr, colptr]).piece
+          break if other && other.color == @color
           results << Position.normalize([rowptr, colptr])
-          break if other && other.color != color
+          break if other && other.color != @color
         end
 
         # Explore NW diagonal
@@ -46,10 +46,10 @@ module Chess
         while rowptr < @board.height - 1 && colptr > 0
           rowptr += 1
           colptr -= 1
-          other = @board.fetch(rowptr, colptr).piece
-          break if other && other.color == @position.color
+          other = @board.fetch([rowptr, colptr]).piece
+          break if other && other.color == @color
           results << Position.normalize([rowptr, colptr])
-          break if other && other.color != color
+          break if other && other.color != @color
         end
 
         results
