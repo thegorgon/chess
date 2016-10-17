@@ -258,4 +258,11 @@ describe Chess::Position do
       end
     end
   end
+
+  describe '#to_code' do
+    it 'uses the short string representation' do
+      expect(described_class.from_indices(row: 0, col: 0).to_code).to eq 'a1'
+      expect(described_class.from_indices(row: 1, col: 1).to_code).to eq 'b2'
+    end
+  end
 end

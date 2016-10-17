@@ -52,8 +52,9 @@ module Chess
     end
 
     def move!(move)
+      move = Move.normalize(move)
       piece = fetch(move.start_position).piece
-      piece.position = move.end_position
+      piece.move!(move)
       fetch(move.end_position).place!(piece)
       fetch(move.start_position).clear!
     end
