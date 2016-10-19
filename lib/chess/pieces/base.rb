@@ -1,3 +1,5 @@
+# Base piece class. Defines the basic functionality of a chess piece.
+# All pieces descend from this class
 module Chess
   module Piece
     class Base

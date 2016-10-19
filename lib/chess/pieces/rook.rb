@@ -1,3 +1,5 @@
+# Defines a rook with it's valid moves.
+# Uses the Directions helper module to share code with queens and bishops.
 module Chess
   module Piece
     class Rook < Base
