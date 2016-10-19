@@ -4,10 +4,14 @@ module Chess
       include Helper::Directions
 
       def valid_moves
-        valid_moves_heading(:north) +
-          valid_moves_heading(:west) +
-          valid_moves_heading(:east) +
-          valid_moves_heading(:south)
+        [ :north,
+          :west,
+          :east,
+          :south
+        ].inject([]) do |memo, direction|
+          memo += valid_moves_heading(direction)
+          memo
+        end
       end
     end
   end
