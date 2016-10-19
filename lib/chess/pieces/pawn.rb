@@ -1,3 +1,5 @@
+# Defines a pawn with it's valid moves.
+# TODO - en passant and promotion
 module Chess
   module Piece
     class Pawn < Base
@@ -15,8 +17,9 @@ module Chess
           [@position.row + direction * 1, @position.col - 1],
           [@position.row + direction * 1, @position.col + 1]
         ].each do |newr, newc|
-          other = @board.fetch([newr, newc]).piece
-          result << Position.normalize([newr, newc]) if other && other.color != color
+          check_position = Position.normalize([newr, newc])
+          other = @board.fetch(check_position).piece
+          result << check_position if other && other.color != color
         end
         result
       end

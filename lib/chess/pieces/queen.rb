@@ -1,3 +1,5 @@
+# Defines a queen with it's valid moves.
+# Uses the Directions helper module to share code with rooks and bishops.
 module Chess
   module Piece
     class Queen < Base

@@ -1,3 +1,5 @@
+# Defines a bishop with it's valid moves.
+# Uses the `Directions` helper module to share code with queens and rooks.
 module Chess
   module Piece
     class Bishop < Base

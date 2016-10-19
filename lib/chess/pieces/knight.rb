@@ -1,3 +1,4 @@
+# Defines a knight with it's valid moves.
 module Chess
   module Piece
     class Knight < Base
@@ -12,10 +13,11 @@ module Chess
           [@position.row + 1, @position.col - 2],
           [@position.row - 1, @position.col - 2],
         ].inject([]) do |memo, (row, col)|
-          if (0..7).include?(row) && (0..7).include?(col)
-            other = @board.fetch([row, col]).piece
+          if (0..@board.height-1).include?(row) && (0..@board.width-1).include?(col)
+            check_position = Position.normalize([row, col])
+            other = @board.fetch(check_position).piece
             if other.nil? || other.color != @color
-              memo << Position.normalize([row, col])
+              memo << check_position
             end
           end
           memo

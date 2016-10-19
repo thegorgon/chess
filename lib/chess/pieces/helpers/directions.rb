@@ -1,3 +1,5 @@
+# Encapsulates functionality for pieces that move in a single direction.
+# Provides private generalzied movement helpers for bishops, rooks and queens.
 module Chess
   module Piece
     module Helper
