@@ -17,10 +17,12 @@ RSpec::Matchers.define :match_positions do |expected|
   end
 
   failure_message do |actual|
-    "expected that #{display(actual)} would contain the same elements as #{display(expected)}"
+    "expected that #{display(actual)} would contain" \
+      " the same elements as #{display(expected)}"
   end
 
   failure_message_when_negated do |actual|
-    "expected that #{display(actual)} would not contain the same elements as #{display(expected)}"
+    "expected that #{display(actual)} would not contain" \
+      " the same elements as #{display(expected)}"
   end
 end

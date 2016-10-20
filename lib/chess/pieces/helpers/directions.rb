@@ -1,26 +1,26 @@
-# Encapsulates functionality for pieces that move in a single direction.
-# Provides private generalzied movement helpers for bishops, rooks and queens.
 module Chess
   module Piece
     module Helper
+      # Encapsulates functionality for pieces that move in a single direction.
+      # Provides private generalzied movement helpers for bishops, rooks and queens.
       module Directions
         def directional_details(board)
           {
             north: {
               iteration: { row: 1, col: 0 },
-              bounds: { row: { lt: @board.height - 1 } }
+              bounds: { row: { lt: board.height - 1 } }
             },
             northeast: {
               iteration: { row: 1, col: 1 },
-              bounds: { row: { lt: @board.height - 1 }, col: { lt: @board.width - 1 } }
+              bounds: { row: { lt: board.height - 1 }, col: { lt: board.width - 1 } }
             },
             east: {
               iteration: { row: 0, col: 1 },
-              bounds: { col: { lt: @board.width - 1 } }
+              bounds: { col: { lt: board.width - 1 } }
             },
             southeast: {
               iteration: { row: -1, col: 1 },
-              bounds: { row: { gt: 0 }, col: { lt: @board.width - 1 } }
+              bounds: { row: { gt: 0 }, col: { lt: board.width - 1 } }
             },
             south: {
               iteration: { row: -1, col: 0 },
@@ -36,15 +36,19 @@ module Chess
             },
             northwest: {
               iteration: { row: 1, col: -1 },
-              bounds: { row: { lt: @board.height - 1 }, col: { gt: 0 } }
+              bounds: { row: { lt: board.height - 1 }, col: { gt: 0 } }
             }
           }
         end
         private :directional_details
 
         def in_bounds?(row, col, bounds)
-          (bounds[:row].nil? || (bounds[:row][:gt] && row > bounds[:row][:gt]) || (bounds[:row][:lt] && row < bounds[:row][:lt])) &&
-            (bounds[:col].nil? || (bounds[:col][:gt] && col > bounds[:col][:gt]) || (bounds[:col][:lt] && col < bounds[:col][:lt]))
+          (bounds[:row].nil? ||
+            (bounds[:row][:gt] && row > bounds[:row][:gt]) ||
+            (bounds[:row][:lt] && row < bounds[:row][:lt])) &&
+            (bounds[:col].nil? ||
+              (bounds[:col][:gt] && col > bounds[:col][:gt]) ||
+              (bounds[:col][:lt] && col < bounds[:col][:lt]))
         end
         private :in_bounds?
 

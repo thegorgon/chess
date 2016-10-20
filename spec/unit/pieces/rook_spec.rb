@@ -10,7 +10,9 @@ describe Chess::Piece::Rook do
       before { board.place!(rook, 'a1') }
 
       it 'is forward and to the right' do
-        expect(rook.valid_moves).to match_positions %w(a2 a3 a4 a5 a6 a7 a8 b1 c1 d1 e1 f1 g1 h1)
+        expect(rook.valid_moves).to match_positions %w(
+          a2 a3 a4 a5 a6 a7 a8 b1 c1 d1 e1 f1 g1 h1
+        )
       end
     end
 
@@ -40,7 +42,10 @@ describe Chess::Piece::Rook do
       before { board.place!(rook, 'd4') }
 
       it 'is in all directions' do
-        expect(rook.valid_moves).to match_positions %w(a4 b4 c4 e4 f4 g4 h4 d1 d2 d3 d5 d6 d7 d8)
+        expect(rook.valid_moves).to match_positions %w(
+          a4 b4 c4 e4 f4 g4 h4
+          d1 d2 d3 d5 d6 d7 d8
+        )
       end
     end
 

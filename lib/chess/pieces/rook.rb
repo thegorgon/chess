@@ -6,7 +6,8 @@ module Chess
       include Helper::Directions
 
       def valid_moves
-        [ :north,
+        [
+          :north,
           :west,
           :east,
           :south
