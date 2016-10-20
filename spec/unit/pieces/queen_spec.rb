@@ -10,7 +10,10 @@ describe Chess::Piece::Queen do
       before { board.place!(queen, 'd1') }
 
       it 'is in every direction' do
-        expect(queen.valid_moves).to match_positions %w(a1 b1 c1 e1 f1 g1 h1 c2 b3 a4 e2 f3 g4 h5 d2 d3 d4 d5 d6 d7 d8)
+        expect(queen.valid_moves).to match_positions %w(
+          a1 b1 c1 e1 f1 g1 h1 c2 b3 a4 e2
+          f3 g4 h5 d2 d3 d4 d5 d6 d7 d8
+        )
       end
     end
 
@@ -20,7 +23,10 @@ describe Chess::Piece::Queen do
       before { board.place!(queen, 'd1') }
 
       it 'is in every direction' do
-        expect(queen.valid_moves).to match_positions %w(a1 b1 c1 e1 f1 g1 h1 c2 b3 a4 e2 f3 g4 h5 d2 d3 d4)
+        expect(queen.valid_moves).to match_positions %w(
+          a1 b1 c1 e1 f1 g1 h1 c2 b3
+          a4 e2 f3 g4 h5 d2 d3 d4
+        )
       end
     end
 
@@ -30,7 +36,10 @@ describe Chess::Piece::Queen do
       before { board.place!(queen, 'd1') }
 
       it 'is in every direction, except north' do
-        expect(queen.valid_moves).to match_positions %w(a1 b1 c1 e1 f1 g1 h1 c2 b3 a4 e2 f3 g4 h5)
+        expect(queen.valid_moves).to match_positions %w(
+          a1 b1 c1 e1 f1 g1 h1 c2
+          b3 a4 e2 f3 g4 h5
+        )
       end
     end
 
@@ -66,7 +75,9 @@ describe Chess::Piece::Queen do
       before { board.place!(queen, 'd1') }
 
       it 'is in every direction, except north and north east' do
-        expect(queen.valid_moves).to match_positions %w(e1 c2 b3 a4 e2 f3 g4 h5 d2 d3 d4 d5 d6 d7 d8)
+        expect(queen.valid_moves).to match_positions %w(
+          e1 c2 b3 a4 e2 f3 g4 h5 d2 d3 d4 d5 d6 d7 d8
+        )
       end
     end
 
@@ -74,7 +85,10 @@ describe Chess::Piece::Queen do
       before { board.place!(queen, 'a1') }
 
       it 'is north, west and northwest' do
-        expect(queen.valid_moves).to match_positions %w(a2 a3 a4 a5 a6 a7 a8 b1 c1 d1 e1 f1 g1 h1 b2 c3 d4 e5 f6 g7 h8)
+        expect(queen.valid_moves).to match_positions %w(
+          a2 a3 a4 a5 a6 a7 a8 b1 c1 d1 e1
+          f1 g1 h1 b2 c3 d4 e5 f6 g7 h8
+        )
       end
     end
 
@@ -82,7 +96,11 @@ describe Chess::Piece::Queen do
       before { board.place!(queen, 'e5') }
 
       it 'is in every direction' do
-        expect(queen.valid_moves).to match_positions %w(e1 e2 e3 e4 e6 e7 e8 a5 b5 c5 d5 f5 g5 h5 d4 c3 b2 a1 f6 g7 h8 d6 c7 b8 f4 g3 h2)
+        expect(queen.valid_moves).to match_positions %w(
+          e1 e2 e3 e4 e6 e7 e8 a5 b5
+          c5 d5 f5 g5 h5 d4 c3 b2 a1
+          f6 g7 h8 d6 c7 b8 f4 g3 h2
+        )
       end
     end
 

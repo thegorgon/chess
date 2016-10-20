@@ -6,13 +6,10 @@ module Chess
       def valid_moves
         result = []
         check_position = Position.normalize([@position.row + direction * 1, @position.col])
-        if @board.fetch(check_position).empty?
-          result << check_position
-        end
+        result << check_position if @board.fetch(check_position).empty?
         check_position = Position.normalize([@position.row + direction * 2, @position.col])
-        if @board.fetch(check_position).empty? && @moves.empty?
-          result << check_position
-        end
+        result << check_position if @board.fetch(check_position).empty? && @moves.empty?
+
         [
           [@position.row + direction * 1, @position.col - 1],
           [@position.row + direction * 1, @position.col + 1]

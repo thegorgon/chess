@@ -6,7 +6,9 @@ module Chess
       attr_reader :name, :color, :moves
 
       def initialize(color, board)
-        raise ArgumentError, "Invalid color #{color}" unless color == Chess::COLORS.white || color == Chess::COLORS.black
+        unless color == Chess::COLORS.white || color == Chess::COLORS.black
+          raise ArgumentError, "Invalid color #{color}"
+        end
         @name = self.class.to_s.split('::').last.downcase.to_sym
         @color = color
         @board = board
